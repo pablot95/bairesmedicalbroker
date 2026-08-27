@@ -26,7 +26,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 }
 
 /* Campo señuelo: los visitantes reales nunca lo ven ni lo completan. */
-if (trim((string)($_POST['empresa'] ?? '')) !== '') {
+if (trim((string)($_POST['contacto_secundario_9f2'] ?? '')) !== '') {
     responder(200, true, '¡Listo! Recibimos tus datos y te vamos a contactar.');
 }
 

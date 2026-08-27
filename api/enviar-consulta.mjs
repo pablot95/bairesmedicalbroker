@@ -46,7 +46,7 @@ export default {
     }
 
     // Campo señuelo: los bots suelen completarlo, las personas no lo ven.
-    if (limpiar(datos.get('empresa'), 120)) {
+    if (limpiar(datos.get('contacto_secundario_9f2'), 120)) {
       return json(200, { ok: true, message: '¡Listo! Recibimos tus datos y te vamos a contactar.' });
     }
 
