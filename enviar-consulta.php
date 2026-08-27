@@ -32,6 +32,7 @@ if (trim((string)($_POST['empresa'] ?? '')) !== '') {
 
 $nombre = trim((string)($_POST['nombre'] ?? ''));
 $telefono = trim((string)($_POST['telefono'] ?? ''));
+$email = trim((string)($_POST['email'] ?? ''));
 $cobertura = trim((string)($_POST['cobertura'] ?? ''));
 $situacion = trim((string)($_POST['situacion'] ?? ''));
 $consentimiento = (string)($_POST['consentimiento'] ?? '');
@@ -51,6 +52,9 @@ if (!in_array($situacion, $situacionesValidas, true)) {
 }
 if (strlen($digitosTelefono) < 8 || strlen($digitosTelefono) > 15 || !preg_match('/^[+\d\s()\-.]+$/', $telefono)) {
     responder(422, false, 'Revisá el teléfono ingresado.');
+}
+if (strlen($email) > 160 || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    responder(422, false, 'Revisá el email ingresado.');
 }
 if ($consentimiento !== 'si') {
     responder(422, false, 'Necesitamos tu autorización para poder contactarte.');
@@ -77,6 +81,7 @@ $cuerpo = implode("\r\n", [
     '',
     'Nombre y apellido: ' . $nombre,
     'Teléfono: ' . $telefono,
+    'Email: ' . $email,
     'Cobertura para: ' . $cobertura,
     'Situación laboral: ' . $situacion,
     '',
@@ -86,7 +91,7 @@ $headers = implode("\r\n", [
     'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',
     'From: Baires Medical Brokers <' . $remitente . '>',
-    'Reply-To: ' . DESTINO_CONSULTAS,
+    'Reply-To: ' . $email,
     'X-Mailer: PHP/' . PHP_VERSION,
 ]);
 
