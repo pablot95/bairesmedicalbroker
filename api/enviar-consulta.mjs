@@ -1,5 +1,5 @@
 const DESTINO = 'bairesmedicalbroker@gmail.com';
-const COBERTURAS = new Set(['Para mí', 'Para mí y mi pareja', 'Para mí, mi pareja y mis hijos']);
+const COBERTURAS = new Set(['Para mí', 'Para mí y mis hijos', 'Para mí y mi pareja', 'Para mí, mi pareja y mis hijos']);
 const SITUACIONES = new Set(['Monotributista', 'Relación de dependencia', 'Particular']);
 
 function json(status, body) {

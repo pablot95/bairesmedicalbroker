@@ -37,7 +37,7 @@ $cobertura = trim((string)($_POST['cobertura'] ?? ''));
 $situacion = trim((string)($_POST['situacion'] ?? ''));
 $consentimiento = (string)($_POST['consentimiento'] ?? '');
 
-$coberturasValidas = ['Para mí', 'Para mí y mi pareja', 'Para mí, mi pareja y mis hijos'];
+$coberturasValidas = ['Para mí', 'Para mí y mis hijos', 'Para mí y mi pareja', 'Para mí, mi pareja y mis hijos'];
 $situacionesValidas = ['Monotributista', 'Relación de dependencia', 'Particular'];
 $digitosTelefono = preg_replace('/\D+/', '', $telefono) ?? '';
 
